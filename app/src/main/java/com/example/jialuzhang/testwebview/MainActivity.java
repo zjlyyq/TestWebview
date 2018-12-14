@@ -1,5 +1,6 @@
 package com.example.jialuzhang.testwebview;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        使用Android原生提供的addJavascriptInterface添加js调原生的接口,wx是别名
         webView.addJavascriptInterface(new JavaScriptInterface(),"wx");
+        webView.addJavascriptInterface(new JavaScriptInterface2(),"wx2");
     }
 
     @Override
@@ -63,6 +65,13 @@ public class MainActivity extends AppCompatActivity {
         @android.webkit.JavascriptInterface
         public void doTrainFinish() {
             finish();
+        }
+    }
+    public class JavaScriptInterface2{
+        @android.webkit.JavascriptInterface
+        public void gotoBridgeWebView() {
+            Intent intent = new Intent(MainActivity.this,BridgeWebViewActivity.class);
+            startActivity(intent);
         }
     }
 }
