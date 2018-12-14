@@ -1,25 +1,20 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
 <body>
-    <script type="text/javascript">
-    function testClick1() {
-        alert('start： ');
-           //调用本地java方法
-           //第一个参数是 调用java的函数名字 第二个参数是要传递的数据 第三个参数js在被回调后具体执行方法，responseData为java层回传数据
-           var data='发送消息给java代码指定接收';
-           window.WebViewJavascriptBridge.callHandler(
-               'submitFromWeb'
-               ,data
-               , function(responseData) {
-                   alert('来自Java的回传数据： ' + responseData);
-               }
-           );
-       }
-
+<body onload="testClick1()">
+    <script>
+        function testClick1() {
+            alert('start： ');
+        }
     </script>
-    <button onclick="testClick1()">点击一下</button>
+    <p>helloworld!</p>
+<button onclick="testClick1()">点击一下</button>
+</body>
 </body>
 </html>

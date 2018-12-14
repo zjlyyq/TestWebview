@@ -15,9 +15,9 @@ public class BridgeWebViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bridge_web_view);
-        bridgeWebView = (BridgeWebView)findViewById(R.id.bridgeWebview);
+        bridgeWebView = findViewById(R.id.bridgeWebview);
         bridgeWebView.loadUrl("file:///android_asset/index2.html");
-        bridgeWebView.registerHandler("submitFromWeb",new BridgeHandler() {
+        bridgeWebView.setDefaultHandler(new BridgeHandler() {
             //必须和js同名函数，注册具体执行函数，类似java实现类。
             //第一参数是订阅的java本地函数名字 第二个参数是回调Handler , 参数返回js请求的resqustData,function.onCallBack（）回调到js，调用function(responseData)
             @Override
